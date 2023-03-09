@@ -1,0 +1,93 @@
+@use "@fremtind/jkl-core/core";
+@use "@fremtind/jkl-core/jkl";
+
+@import "@fremtind/jkl-input-group/input-group.min.css";
+@import "@fremtind/jkl-card/card.min.css";
+@import "@fremtind/jkl-text-input/text-input.min.css";
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.form-card {
+  backdrop-filter: blur(4px);
+  background-color: rgb(255 255 255 / 0.6);
+}
+
+.form {
+  position: relative;
+  z-index: jkl.$z-index--overlay;
+
+  padding: var(--jkl-spacing-24);
+  display: flex;
+  flex-direction: column-reverse;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
+.slider {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button {
+  width: 60vw;
+  height: 60vw;
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  border-radius: 99999px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.25);
+
+  // position: absolute;
+  // top: 20%;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+
+  cursor: pointer;
+
+  @include jkl.text-style("title");
+}
+
+.gradient {
+  position: fixed;
+  inset: 0;
+
+  --rdeg: 217deg;
+  --gdeg: 127deg;
+  --bdeg: 336deg;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-image: linear-gradient(
+      var(--rdeg),
+      hsl(0, 100, 50, 0.8),
+      hsla(0, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(
+      var(--gdeg),
+      hsla(128, 100, 50, 0.8),
+      hsla(0, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(
+      var(--bdeg),
+      hsla(240, 100, 50, 0.8),
+      hsla(0, 0, 0, 0) 70.71%
+    );
+
+  filter: saturate(100%);
+}
