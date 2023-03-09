@@ -73,19 +73,11 @@
 
   background-image: linear-gradient(
       var(--rdeg),
-      hsl(0, 100, 50, 0.8),
-      hsla(0, 0, 0, 0) 70.71%
+      hsl(0 100 50 / 0.8),
+      hsl(0 0 0 / 0) 70.71%
     ),
-    linear-gradient(
-      var(--gdeg),
-      hsla(128, 100, 50, 0.8),
-      hsla(0, 0, 0, 0) 70.71%
-    ),
-    linear-gradient(
-      var(--bdeg),
-      hsla(240, 100, 50, 0.8),
-      hsla(0, 0, 0, 0) 70.71%
-    );
+    linear-gradient(var(--gdeg), hsl(128 100 50 / 0.8), hsl(0 0 0 / 0) 70.71%),
+    linear-gradient(var(--bdeg), hsl(240 100 50 / 0.8), hsl(0 0 0 / 0) 70.71%);
 
   filter: saturate(100%);
 }

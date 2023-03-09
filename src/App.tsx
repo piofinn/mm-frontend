@@ -107,6 +107,7 @@ function App() {
               label="Har du noe på hjertet?"
               value={message}
               onChange={(event) => setMessage(event.target.value)}
+              rows={4}
             />
           </TaskCard>
           <div className="button-container">
