@@ -3,6 +3,11 @@ import "./App.scss";
 import { TaskCard } from "@fremtind/jkl-card-react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 
+const appHeight = () => {
+  const doc = document.documentElement;
+  doc.style.setProperty("--app-height", `${window.innerHeight}px`);
+};
+
 function App() {
   const motionAmount = useRef(0.03);
   const animationRef = useRef<number>(0);
@@ -11,6 +16,7 @@ function App() {
   const [gdegValue, setGdegValue] = useState("");
   const [bdegValue, setBdegValue] = useState("");
   const [mood, setMood] = useState(50);
+  const [message, setMessage] = useState("");
 
   const rotateDegreeValue = (startValue = 0, prevTime?: number) => {
     const currentTime = Date.now();
@@ -39,9 +45,12 @@ function App() {
 
   useEffect(() => {
     rotateDegreeValue();
+    window.addEventListener("resize", appHeight);
+    appHeight();
 
     return () => {
       cancelAnimationFrame(animationRef.current);
+      window.removeEventListener("resize", appHeight);
     };
   }, []);
 
@@ -75,6 +84,8 @@ function App() {
             event.preventDefault();
 
             console.log(event);
+            setMood(50);
+            setMessage("");
           }}
         >
           <TaskCard className="form-card" padding="l">
@@ -92,12 +103,19 @@ function App() {
               value={mood}
               onChange={(event) => setMood(parseInt(event.target.value))}
             />
-            <TextArea label="Har du noe på hjertet?" />
+            <TextArea
+              label="Har du noe på hjertet?"
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
+            />
           </TaskCard>
           <div className="button-container">
             <button className="submit-button">Sånn!</button>
           </div>
         </form>
+      )}
+      {!isWorkHours() && (
+        <p className="jkl-heading-1">Kom tilbake i arbeidstiden!</p>
       )}
     </main>
   );

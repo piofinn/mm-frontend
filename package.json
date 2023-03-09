@@ -13,6 +13,7 @@
     "@fremtind/jkl-card-react": "^8.0.13",
     "@fremtind/jkl-core": "^12.0.2",
     "@fremtind/jkl-text-input-react": "^13.0.4",
+    "@fremtind/jkl-webfonts": "^2.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.58.3"
