@@ -10,5 +10,5 @@ export type Props = {
 export const SpeechBubble: FC<Props> = ({ message }) => {
   const [speed] = useState(Math.random());
 
-  return <TaskCard className="speech-bubble jkl-body">{message}</TaskCard>;
+  return <p className="speech-bubble jkl-body">{message}</p>;
 };

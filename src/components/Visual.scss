@@ -6,6 +6,6 @@
   background-color: transparent;
   overflow: hidden;
 
-  @include jkl.motion("standard", "expressive");
+  @include jkl.motion("standard", "lazy");
   transition-property: backdrop-filter, -webkit-backdrop-filter;
 }

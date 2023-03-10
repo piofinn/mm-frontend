@@ -1,8 +1,17 @@
+@use "@fremtind/jkl-core/jkl";
+
 .speech-bubble {
-  background-color: rgb(255 255 255 / 0.7);
   position: absolute;
 
   left: var(--leftPos, 50%);
   top: var(--topPos, 50%);
-  transform: translate(-50%, 0);
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 30ch;
+  text-align: center;
+
+  @include jkl.use-font-family("Fremtind Grotesk");
+  font-weight: jkl.$typography-weight-normal;
+  font-size: 10vh;
+  line-height: 1.2;
 }
