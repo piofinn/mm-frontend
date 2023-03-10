@@ -7,7 +7,7 @@ const appHeight = () => {
   doc.style.setProperty("--app-height", `${window.innerHeight}px`);
 };
 
-function App() {
+function Input() {
   const motionAmount = useRef(0.03);
   const animationRef = useRef<number>(0);
 
@@ -121,4 +121,4 @@ function App() {
   );
 }
 
-export default App;
+export default Input;

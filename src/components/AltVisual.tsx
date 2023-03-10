@@ -1,1 +1,1 @@
-const AltVisual = ()=> <>YE</>
+export const AltVisual = ()=> <>YE</>
