@@ -4,7 +4,7 @@ export const animateColors = (startValue = 0, prevTime?: number) => {
   const currentTime = Date.now();
   const timeStep = prevTime ? currentTime - prevTime : 0;
 
-  let value = startValue + timeStep * 0.05; // motionAmount.current;
+  let value = startValue + timeStep * 0.03; // motionAmount.current;
   if (value >= 365) {
     value = 0;
   }

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Input from "./components/Input";
 import { AltVisual } from "./components/AltVisual";
 import Visual from "./components/Visual";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,8 +20,13 @@ function App() {
       element: <AltVisual />,
     },
   ]);
+  const queryClient = new QueryClient();
 
-  return <RouterProvider router={router}></RouterProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
+  );
 }
 
 export default App;

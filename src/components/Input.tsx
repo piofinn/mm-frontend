@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { TaskCard } from "@fremtind/jkl-card-react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { animateColors } from "../animateColors";
@@ -11,7 +11,6 @@ const appHeight = () => {
 function Input() {
   const [mood, setMood] = useState(50);
   const [message, setMessage] = useState("");
-
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -44,19 +43,28 @@ function Input() {
     return true;
   };
 
+  const postDataToDatabase: React.FormEventHandler = useCallback((event) => {
+    event.preventDefault();
+
+    fetch("https://zeeq.pythonanywhere.com/write", {
+      method: "POST",
+      headers: new Headers({
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify({
+        mood: mood / 100,
+        feeling: message,
+      }),
+    });
+
+    setMood(50);
+    setMessage("");
+  }, []);
+
   return (
     <main className="jkl page" ref={mainRef}>
       {isWorkHours() && (
-        <form
-          className="form"
-          onSubmit={(event) => {
-            event.preventDefault();
-
-            console.log(event);
-            setMood(50);
-            setMessage("");
-          }}
-        >
+        <form className="form" onSubmit={postDataToDatabase}>
           <TaskCard className="form-card" padding="l">
             <h1 className="jkl-heading-2 jkl-spacing-24--bottom">
               Hvordan føler du deg i dag, <em>egentlig</em>?

@@ -1,0 +1,11 @@
+@use "@fremtind/jkl-core/jkl";
+
+.overlay {
+  min-width: 100%;
+  min-height: 100%;
+  background-color: transparent;
+  overflow: hidden;
+
+  @include jkl.motion("standard", "expressive");
+  transition-property: backdrop-filter, -webkit-backdrop-filter;
+}
