@@ -14,6 +14,40 @@
   min-height: 100vh;
 }
 
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  --rdeg: 217deg;
+  --gdeg: 127deg;
+  --bdeg: 336deg;
+
+  background-image: linear-gradient(
+      var(--rdeg),
+      hsl(0 100% 50% / 0.8),
+      hsl(0 0% 0% / 0) 70.71%
+    ),
+    linear-gradient(
+      var(--gdeg),
+      hsl(128 100% 50% / 0.8),
+      hsl(0 0% 0% / 0) 70.71%
+    ),
+    linear-gradient(
+      var(--bdeg),
+      hsl(240 100% 50% / 0.8),
+      hsl(0 0% 0% / 0) 70.71%
+    );
+}
+
+.page {
+  background-color: transparent;
+  min-width: 100vw;
+  box-sizing: border-box;
+}
+
 .form-card {
   backdrop-filter: blur(4px);
   background-color: rgb(255 255 255 / 0.6);
@@ -52,32 +86,11 @@
 
   border: none;
   border-radius: 99999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 0 25px 5px rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.05);
 
   cursor: pointer;
 
   @include jkl.text-style("title");
-}
-
-.gradient {
-  position: fixed;
-  inset: 0;
-
-  --rdeg: 217deg;
-  --gdeg: 127deg;
-  --bdeg: 336deg;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-image: linear-gradient(
-      var(--rdeg),
-      hsl(0 100 50 / 0.8),
-      hsl(0 0 0 / 0) 70.71%
-    ),
-    linear-gradient(var(--gdeg), hsl(128 100 50 / 0.8), hsl(0 0 0 / 0) 70.71%),
-    linear-gradient(var(--bdeg), hsl(240 100 50 / 0.8), hsl(0 0 0 / 0) 70.71%);
-
-  filter: saturate(100%);
 }
