@@ -61,7 +61,7 @@ function Input() {
       setMood(50);
       setMessage("");
     },
-    []
+    [mood, message]
   );
 
   return (
@@ -78,7 +78,9 @@ function Input() {
               min={0}
               max={100}
               value={mood}
-              onChange={(event) => setMood(parseInt(event.target.value))}
+              onChange={(event) => {
+                setMood(parseInt(event.target.value));
+              }}
             />
             <TextArea
               label="Har du noe på hjertet?"
