@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fremtind/jkl-button-react": "^13.0.4",
     "@fremtind/jkl-card": "^8.0.3",
     "@fremtind/jkl-card-react": "^8.0.13",
     "@fremtind/jkl-core": "^12.0.2",
