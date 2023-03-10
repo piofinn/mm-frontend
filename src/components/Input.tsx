@@ -62,7 +62,7 @@ function Input() {
   }, []);
 
   return (
-    <main className="jkl page" ref={mainRef}>
+    <main data-theme="light" className="jkl page" ref={mainRef}>
       {isWorkHours() && (
         <form className="form" onSubmit={postDataToDatabase}>
           <TaskCard className="form-card" padding="l">
