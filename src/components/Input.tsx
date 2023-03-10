@@ -43,23 +43,26 @@ function Input() {
     return true;
   };
 
-  const postDataToDatabase: React.FormEventHandler = useCallback((event) => {
-    event.preventDefault();
+  const postDataToDatabase: React.FormEventHandler = useCallback(
+    async (event) => {
+      event.preventDefault();
 
-    fetch("https://zeeq.pythonanywhere.com/write", {
-      method: "POST",
-      headers: new Headers({
-        "Content-Type": "application/json",
-      }),
-      body: JSON.stringify({
-        mood: mood / 100,
-        feeling: message,
-      }),
-    });
+      await fetch("https://zeeq.pythonanywhere.com/write", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/json",
+        }),
+        body: JSON.stringify({
+          mood: mood / 100,
+          feeling: message,
+        }),
+      });
 
-    setMood(50);
-    setMessage("");
-  }, []);
+      setMood(50);
+      setMessage("");
+    },
+    []
+  );
 
   return (
     <main data-theme="light" className="jkl page" ref={mainRef}>
