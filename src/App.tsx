@@ -4,11 +4,6 @@ import Input from "./components/Input";
 import { AltVisual } from "./components/AltVisual";
 import Visual from "./components/Visual";
 
-const appHeight = () => {
-  const doc = document.documentElement;
-  doc.style.setProperty("--app-height", `${window.innerHeight}px`);
-};
-
 function App() {
   const router = createBrowserRouter([
     {

@@ -15,6 +15,7 @@ function Input() {
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    mainRef.current?.style.setProperty("--saturation", `${mood}%`);
     mainRef.current?.style.setProperty("backdrop-filter", `saturate(${mood}%)`);
     mainRef.current?.style.setProperty(
       "-webkit-backdrop-filter",
@@ -70,6 +71,7 @@ function Input() {
             />
             <TextArea
               label="Har du noe på hjertet?"
+              helpLabel="Alt du skriver her er selvfølgelig helt anonymt"
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               rows={4}

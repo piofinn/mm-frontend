@@ -9,43 +9,48 @@
 @import "@fremtind/jkl-card/card.min.css";
 @import "@fremtind/jkl-text-input/text-input.min.css";
 
-#root {
-  padding: 0;
-  min-height: 100vh;
-}
-
 html,
 body {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  height: var(--app-height, 100vh);
+
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  --rdeg: 217deg;
-  --gdeg: 127deg;
-  --bdeg: 336deg;
-
   background-image: linear-gradient(
-      var(--rdeg),
+      var(--rdeg, 217deg),
       hsl(0 100% 50% / 0.8),
       hsl(0 0% 0% / 0) 70.71%
     ),
     linear-gradient(
-      var(--gdeg),
+      var(--gdeg, 127deg),
       hsl(128 100% 50% / 0.8),
       hsl(0 0% 0% / 0) 70.71%
     ),
     linear-gradient(
-      var(--bdeg),
+      var(--bdeg, 336deg),
       hsl(240 100% 50% / 0.8),
       hsl(0 0% 0% / 0) 70.71%
     );
+}
+
+#root {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
 .page {
   background-color: transparent;
   min-width: 100vw;
   box-sizing: border-box;
+  display: flex;
+  flex-grow: 1;
 }
 
 .form-card {
@@ -61,11 +66,22 @@ body {
   display: flex;
   flex-direction: column-reverse;
   box-sizing: border-box;
-  min-height: 100vh;
+  flex-grow: 1;
 }
 
 .slider {
   width: 100%;
+  accent-color: hsl(var(--rdeg) var(--saturation) 50% / 1);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 40px;
+  height: 40px;
 }
 
 .button-container {
