@@ -37,7 +37,10 @@ export const Visual = () => {
     const interval = setInterval(() => {
       if (!data) return;
 
-      const entry = data[Math.round(Math.random() * data.length)];
+      let entry = data[Math.round(Math.random() * data.length)];
+      while (entry[1] === "") {
+        entry = data[Math.round(Math.random() * data.length)];
+      }
       setMood(entry[0]);
       setMessage(entry[1]);
 
