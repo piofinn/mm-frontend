@@ -5,6 +5,7 @@
   $webfonts-dir: "../node_modules/@fremtind/jkl-webfonts/fonts"
 );
 
+@import "@fremtind/jkl-button/button.min.css";
 @import "@fremtind/jkl-input-group/input-group.min.css";
 @import "@fremtind/jkl-card/card.min.css";
 @import "@fremtind/jkl-text-input/text-input.min.css";
@@ -45,43 +46,9 @@ body {
   display: flex;
 }
 
-.page {
-  background-color: transparent;
-  min-width: 100vw;
-  box-sizing: border-box;
-  display: flex;
-  flex-grow: 1;
-}
-
-.form-card {
+/* .form-card {
   backdrop-filter: blur(4px);
   background-color: rgb(255 255 255 / 0.6);
-}
-
-.form {
-  position: relative;
-  z-index: jkl.$z-index--overlay;
-
-  padding: var(--jkl-spacing-24);
-  display: flex;
-  flex-direction: column-reverse;
-  box-sizing: border-box;
-  flex-grow: 1;
-}
-
-.slider {
-  width: 100%;
-  accent-color: hsl(var(--rdeg) var(--saturation) 50% / 1);
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 40px;
-  height: 40px;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  width: 40px;
-  height: 40px;
 }
 
 .button-container {
@@ -109,4 +76,4 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 
   @include jkl.text-style("title");
-}
+} */

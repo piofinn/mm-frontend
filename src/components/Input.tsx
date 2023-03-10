@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { TaskCard } from "@fremtind/jkl-card-react";
+import { PrimaryButton } from "@fremtind/jkl-button-react";
 import { TextArea } from "@fremtind/jkl-text-input-react";
 import { animateColors } from "../animateColors";
+
+import "./Input.scss";
 
 const appHeight = () => {
   const doc = document.documentElement;
@@ -44,10 +46,11 @@ function Input() {
   };
 
   const postDataToDatabase: React.FormEventHandler = useCallback(
-    async (event) => {
+    (event) => {
       event.preventDefault();
+      console.log("submitting");
 
-      await fetch("https://zeeq.pythonanywhere.com/write", {
+      fetch("https://zeeq.pythonanywhere.com/write", {
         method: "POST",
         headers: new Headers({
           "Content-Type": "application/json",
@@ -67,10 +70,10 @@ function Input() {
   return (
     <main data-theme="light" className="jkl page" ref={mainRef}>
       {isWorkHours() && (
-        <form className="form" onSubmit={postDataToDatabase}>
-          <TaskCard className="form-card" padding="l">
-            <h1 className="jkl-heading-2 jkl-spacing-24--bottom">
-              Hvordan føler du deg i dag, <em>egentlig</em>?
+        <form className="form" id="form" onSubmit={postDataToDatabase}>
+          <div>
+            <h1 className="title jkl-spacing-24--bottom">
+              Hvordan føler du deg i dag, egentlig?
             </h1>
             <input
               className="slider jkl-spacing-24--bottom"
@@ -84,14 +87,17 @@ function Input() {
             />
             <TextArea
               label="Har du noe på hjertet?"
-              helpLabel="Alt du skriver her er selvfølgelig helt anonymt"
+              // helpLabel="Alt du skriver her er selvfølgelig helt anonymt"
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               rows={4}
             />
-          </TaskCard>
-          <div className="button-container">
-            <button className="submit-button">Sånn!</button>
+          </div>
+          <div>
+            <PrimaryButton className="submit-button">Send</PrimaryButton>
+            <p className="jkl-small jkl-spacing-12--top">
+              Alt du skriver her er selvfølgelig helt anonymt
+            </p>
           </div>
         </form>
       )}
