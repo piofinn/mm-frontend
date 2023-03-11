@@ -87,7 +87,6 @@ function Input() {
             />
             <TextArea
               label="Har du noe på hjertet?"
-              // helpLabel="Alt du skriver her er selvfølgelig helt anonymt"
               value={message}
               onChange={(event) => setMessage(event.target.value)}
               rows={4}
@@ -102,7 +101,9 @@ function Input() {
         </form>
       )}
       {!isWorkHours() && (
-        <p className="jkl-heading-1">Kom tilbake i arbeidstiden!</p>
+        <p className="title jkl-spacing-40--all">
+          Kom tilbake i arbeids&shy;tiden!
+        </p>
       )}
     </main>
   );
